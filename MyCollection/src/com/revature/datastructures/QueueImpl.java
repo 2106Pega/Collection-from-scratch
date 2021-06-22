@@ -20,11 +20,16 @@ public class QueueImpl<T> implements Queue<T> {
 
 	@Override
 	public boolean add(T dataItem) {
+		
+		// array with new data item added
 		T[] newArray = (T[]) new Object[this.hiddenDataStructure.length + 1];
+		
+		// set all elements of new array except last equal to original array
 		for (int i = 0; i < this.hiddenDataStructure.length; i++) {
-			newArray[i] = this.hiddenDataStructure[i];				// a comment
+			newArray[i] = this.hiddenDataStructure[i];
 		}
 		
+		// set last element of array equal to new data item
 		newArray[this.hiddenDataStructure.length] = dataItem;
 		this.hiddenDataStructure = newArray;
 		
@@ -48,9 +53,13 @@ public class QueueImpl<T> implements Queue<T> {
 			return null;
 		}
 		
+		// new array with head item removed
 		T[] newArray = (T[]) new Object[this.hiddenDataStructure.length - 1];
 		
+		// get item at head of queue to return
 		T dataItem = this.hiddenDataStructure[0];
+		
+		// reassign values
 		for (int i = 1; i < this.hiddenDataStructure.length; i++) {
 			newArray[i - 1] = this.hiddenDataStructure[i];
 		}
@@ -61,8 +70,11 @@ public class QueueImpl<T> implements Queue<T> {
 
 	@Override
 	public T peek() {
-		// TODO Auto-generated method stub
-		return null;
+		if (this.isEmpty()) {
+			return null;
+		}
+		
+		return this.hiddenDataStructure[0];
 	}
 
 	

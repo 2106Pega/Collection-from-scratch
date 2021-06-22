@@ -22,11 +22,15 @@ public class SetImpl<T> implements Set<T> {
 	public boolean add(T dataItem) {
 		if (!(this.contains(dataItem))) {
 		
+			// array with new data item added
 			T[] newArray = (T[]) new Object[this.hiddenDataStructure.length + 1];
+			
+			// set all elements of new array except last equal to original array
 			for (int i = 0; i < this.hiddenDataStructure.length; i++) {
 				newArray[i] = this.hiddenDataStructure[i];
 			}
 		
+			// set last element of array equal to new data item
 			newArray[this.hiddenDataStructure.length] = dataItem;
 			this.hiddenDataStructure = newArray;
 		
@@ -50,6 +54,7 @@ public class SetImpl<T> implements Set<T> {
 	public void remove(T dataItem) {
 		boolean isInSet = false;
 		
+		// check if data item is in the set
 		for (int i = 0; i < this.hiddenDataStructure.length; i++) {
 			if (this.hiddenDataStructure[i].equals(dataItem)) {
 				this.hiddenDataStructure[i] = null;
@@ -57,6 +62,7 @@ public class SetImpl<T> implements Set<T> {
 			}
 		}
 		
+		// if the data item is in the set, remove it
 		if (isInSet) {
 			T[] newArray = (T[]) new Object[this.hiddenDataStructure.length - 1];
 			int k = 0;
