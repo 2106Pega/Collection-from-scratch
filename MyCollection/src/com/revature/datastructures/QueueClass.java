@@ -16,31 +16,50 @@ public class QueueClass<T> implements Queue<T> {
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return counter;
 	}
 
 	@Override
 	public boolean add(T dataItem) {
 		// TODO Auto-generated method stub
-		return false;
+		if (counter < array.length) {
+			array[counter] = dataItem;
+			counter += 1;
+		}
+		else {
+			T[] tempArray = (T[]) new Object[array.length * 2];
+			for (int i = 0; i < array.length; i++)
+				tempArray[i] = array[i];
+			array = tempArray;
+			array[counter] = dataItem;
+			counter += 1;
+		}
+		return true;
 	}
 
 	@Override
 	public void print() {
 		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < counter; i++)
+			System.out.println(array[i]);
 	}
 
 	@Override
 	public String pop() {
 		// TODO Auto-generated method stub
-		return null;
+		T removeItem = array[0];
+		for (int i = 0; i < counter; i++) {
+			array[i] = array[i+1];
+			}
+		array[counter] = null;
+		counter --;
+		return (String) removeItem;
 	}
 
 	@Override
 	public String peek() {
 		// TODO Auto-generated method stub
-		return null;
+		return (String) array[0];
 	}
 
 }
