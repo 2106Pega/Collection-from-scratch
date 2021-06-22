@@ -2,64 +2,88 @@ package com.revature.datastructures;
 
 public class SetImpl<T> implements Set<T>{
 
-	private int size;
-	
-	private final int STARTSIZE = 10;
-	
-	private T[] hiddenArray;
-	
-	public SetImpl() {
-		size = 0;
-		this.hiddenArray = (T[]) new Object[STARTSIZE];
-//		hiddenArray = new Set[10];
-	}
-	
-	@Override
-	public boolean isEmpty() {
-		if (size == 0)
-			return true;
-		
-		return false;
-	}
-
-	@Override
-	public int size() {
-		return size;
-//		return hiddenArray.length;
-	}
-
-	@Override
-	public boolean add(Object dataItem) {
-		int temp = 0;
-		while (this.hiddenArray[temp] != null) {
-			temp += 1;
-		}
-		this.hiddenArray[temp] = dataItem;
-		return false;
-	}
-
-	@Override
-	public void print() {
-		for(int i = 0; i < this.hiddenArray.length; i++) {
-			if (this.hiddenArray[i] != null)
-				System.out.println(this.hiddenArray[i].toString());
-		}
-	}
-
-	@Override
-	public void remove(Object dataItem) {
-		Collection<T>[] newArray
-		
-	}
-
-	@Override
-	public boolean contains(Object dataItem) {
-		for(int i = 0; i < index; i++) {
-			if (this.hiddenArray[i].equals(dataItem))
-				return true;
-		}
-		return false;
-	}
+    private T[] arr;
+    
+    public SetImpl(){
+        this.arr = (T[]) new Object[0];
+ 
+    }
+ 
+    @Override
+    public void remove(T dataItem) {
+ 
+        if ( this.contains(dataItem) ){
+ 
+            T[] newArr = (T[]) new Object[this.arr.length-1];
+ 
+ 
+            int holder = -1;
+            for ( int i =0; i < this.arr.length; i++){
+                if ( this.arr[i] == dataItem){
+                    holder = i +1;
+                    break;
+                }
+                newArr[i] = this.arr[i];
+            }
+ 
+            for ( int i = holder; i < this.arr.length; i++){
+                newArr[i-1] = this.arr[i];
+ 
+            }
+ 
+            this.arr = newArr;
+ 
+        }
+ 
+    }
+ 
+    @Override
+    public boolean contains(T dataItem) {
+        for ( T inArr: this.arr){
+            if ( inArr.equals(dataItem) ){
+                return true;
+            }
+        }
+        return false;
+    }
+ 
+    @Override
+    public boolean isEmpty() {
+        return this.arr.length ==0;
+    }
+ 
+    @Override
+    public int size() {
+        return this.arr.length;
+    }
+ 
+    @Override
+    public boolean add(T dataItem) {
+ 
+        if ( this.contains(dataItem) ){
+            return false;
+        }
+        int currentSize = this.arr.length;
+ 
+        T[] newArr = (T[]) new Object[currentSize+1];
+        for ( int i = 0; i < currentSize; i++){
+            newArr[i] = this.arr[i];
+        }
+        newArr[newArr.length-1] = dataItem;
+        this.arr = newArr;
+ 
+ 
+        return true;
+    }
+ 
+    @Override
+    public void print() {
+ 
+        for ( T data: this.arr){
+            System.out.println(data.toString());
+        }
+ 
+    }
 
 	
 }
