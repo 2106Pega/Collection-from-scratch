@@ -10,10 +10,7 @@ public class SetImpl<T> implements Set<T> {
 
 	@Override
 	public boolean isEmpty() {
-		if (this.hiddenDataStructure.length == 0) {
-			return true;
-		}
-		return false;
+		return (this.hiddenDataStructure.length == 0);
 	}
 
 	@Override
@@ -41,7 +38,7 @@ public class SetImpl<T> implements Set<T> {
 
 	@Override
 	public void print() {
-		System.out.print("{");
+		System.out.print("Set: {");
 		for (int i = 0; i < this.hiddenDataStructure.length; i++) {
 			System.out.print(this.hiddenDataStructure[i]);
 			System.out.print(", ");
