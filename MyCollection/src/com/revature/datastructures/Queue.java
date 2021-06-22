@@ -2,8 +2,8 @@ package com.revature.datastructures;
 
 public interface Queue<T> extends Collection<T> {
 	
-	public String pop();
+	public T pop();
 	
-	public String peek();
+	public T peek();
 
 }
