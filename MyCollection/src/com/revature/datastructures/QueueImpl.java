@@ -22,7 +22,7 @@ public class QueueImpl<T> implements Queue<T> {
 	public boolean add(T dataItem) {
 		T[] newArray = (T[]) new Object[this.hiddenDataStructure.length + 1];
 		for (int i = 0; i < this.hiddenDataStructure.length; i++) {
-			newArray[i] = this.hiddenDataStructure[i];
+			newArray[i] = this.hiddenDataStructure[i];				// a comment
 		}
 		
 		newArray[this.hiddenDataStructure.length] = dataItem;
