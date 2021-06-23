@@ -5,7 +5,7 @@ public interface List<T> extends Collection<T> {
 	
 	public boolean add(T dataItem, int index);
 	
-	public boolean addAll(List itemList);
+	public boolean addAll(List<T> itemList);
 	
 	public boolean contains(String s);
 	
