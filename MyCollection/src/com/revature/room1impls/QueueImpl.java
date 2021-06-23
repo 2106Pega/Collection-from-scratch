@@ -1,11 +1,15 @@
 package com.revature.room1impls;
 
 import java.lang.reflect.Array;
+import java.util.Iterator;
+import java.util.ArrayList.Itr;
+import java.util.ArrayList;
 
 import com.revature.datastructures.Queue;
 
-public class QueueImpl<T> implements Queue<T> {
-	private T[] hiddenData;
+public class QueueImpl<T> implements Queue<T>, Iterable<T>  {
+	protected T[] hiddenData;
+	private int index = 0;
 	//add index = 0
 	//remove index = maximum
 	public QueueImpl(){
@@ -65,4 +69,8 @@ public class QueueImpl<T> implements Queue<T> {
 		return this.hiddenData[0];
 	}
 	
+	@Override
+	public Iterator<T> iterator() {
+		return new Iterator<T>(this.hiddenData);
+	}
 }
