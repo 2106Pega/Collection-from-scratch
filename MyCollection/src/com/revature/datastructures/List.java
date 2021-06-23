@@ -7,15 +7,15 @@ public interface List<T> extends Collection<T> {
 	
 	public boolean addAll(List itemList);
 	
-	public boolean contains(String s);
+	public boolean contains(T s);
 	
-	public String itemAtIndex(int index);
+	public T itemAtIndex(int index);
 	
-	public int indexOf(String item);
+	public int indexOf(T item);
 	
 	public boolean remove(int index);
 	
-	public boolean remove(String item);
+	public boolean remove(T item);
 	
 	public void removeAll();
 	
