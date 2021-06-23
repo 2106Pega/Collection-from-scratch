@@ -58,6 +58,7 @@ public class SetImpl<T> implements Set<T>{
 //		}
 		
 		for(int i= 0; i < this.hiddenData.length; i++) {
+		//for(hiddenData)
 			if(this.hiddenData[i] == dataItem) {
 				T[] tempArray= (T[]) (new Object[this.hiddenData.length - 1]);
 				for( int j= 0; j < i; j++) {

@@ -9,6 +9,8 @@ public interface Collection<T> {
 	public boolean add(T dataItem);
 	
 	public void print();
+
+	boolean hasNext();
 	
 	
 
