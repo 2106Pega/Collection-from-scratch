@@ -1,6 +1,8 @@
 package com.revature.datastructures;
 
-public class QueueClass<T> implements Queue<T> {
+import java.util.Iterator;
+
+public class QueueClass<T> implements Queue<T>, Iterable<T>{
 	
 	T[] array = (T[]) new Object[10];
 	int counter = 0;
@@ -61,5 +63,24 @@ public class QueueClass<T> implements Queue<T> {
 		// TODO Auto-generated method stub
 		return (String) array[0];
 	}
+	//Chris Yarnot, Benjamin Yuan, Zibin Dong, Jim Strange, Paul Karas
+	@Override
+	public Iterator<T> iterator() {
+		return new QueueIter();
+	}
+	public class QueueIter implements Iterator<T>{
+		int i = 0;
+		@Override
+		public boolean hasNext() {
+			return i < counter;
+		}
 
+		@Override
+		public T next() {
+			if(hasNext()) {
+				return array[i++];
+			}
+			return null;
+		}
+	}
 }
