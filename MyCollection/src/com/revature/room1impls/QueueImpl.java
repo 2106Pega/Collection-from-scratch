@@ -64,5 +64,10 @@ public class QueueImpl<T> implements Queue<T> {
 		}
 		return this.hiddenData[0];
 	}
+	@Override
+	public boolean hasNext() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }

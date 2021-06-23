@@ -5,11 +5,7 @@ import java.util.Iterator;
 public class MainDriver {
 
 	public static void main(String[] args) {
-		System.out.println("Works");
-	
-		
-		
-		
+
 		QueueExpanded <String> Q = new QueueExpanded<String>();	
 		Q.add("Hello");
 		Q.add("Interfaces");
@@ -20,14 +16,9 @@ public class MainDriver {
 		
 		while(intr.hasNext()) {
 			System.out.println(intr.next());
-			System.out.println("Nice");
 		}
-//		while(Q.hasNext()) {
-//			System.out.println(Q.hasNext());
-//			System.out.println("Nice");
-//		}
-		
-		
+		while(intr.hasNext()) {
+			System.out.println(intr.next());
+		}
 	}
-
 }
