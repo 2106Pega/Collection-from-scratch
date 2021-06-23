@@ -6,7 +6,6 @@ public class QueueExpanded<T> extends QueueImpl<T> implements Iterable<T> {
 	 
 	 private int counter = 0;
 	 private T[] hiddenData;
-	 private int counter2 = 0;
 	 
 	public void Copy() {
 		hiddenData = (T[]) new Object[super.size()];
@@ -16,11 +15,12 @@ public class QueueExpanded<T> extends QueueImpl<T> implements Iterable<T> {
 			hiddenData[g++] = temp;
 			temp = super.pop();
 		}
+		this.Repopulate();
 	}
 
-	public void Repopulate(T) {
+	public void Repopulate() {
 		for(int i = 0; i < hiddenData.length; i++) {
-			super.add(T);
+			super.add(hiddenData[i]);
 		}
 	}
 	

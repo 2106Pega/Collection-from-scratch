@@ -17,6 +17,7 @@ public class MainDriver {
 		while(intr.hasNext()) {
 			System.out.println(intr.next());
 		}
+		intr = Q.iterator();
 		while(intr.hasNext()) {
 			System.out.println(intr.next());
 		}
