@@ -1,6 +1,6 @@
 package com.revature.datastructures;
 
-public interface Collection<T> {
+public interface Collection<T> extends Iterable<T> {
 	
 	public boolean isEmpty();
 	

@@ -3,14 +3,14 @@ package com.revature.datastructures;
 public class MainDriver {
 	
 	public static void main(String[] args) {
-		Set<String> queue = new SetImpl<String>();
-		queue.add("Bad");
-		queue.add("Really bad");
-		queue.add("Really really bad");
-		queue.add("Bad");
-		queue.add("Really really bad");
+		Queue<String> queue = new QueueImpl<String>();
+		queue.add("Dog");
+		queue.add("Cat");
+		queue.add("Fish");
+		queue.add("Bird");
+		queue.add("Bat");
 		queue.print();
-		queue.remove("Bad");
+		System.out.println(queue.peek());
 		queue.print();
 	}
 	

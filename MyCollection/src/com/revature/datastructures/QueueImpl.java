@@ -8,6 +8,10 @@ public class QueueImpl<T> implements Queue<T> {
 		this.hiddenDataStructure = (T[]) new Object[0];
 	}
 	
+	public Iterator<T> iterator() {
+		return new QueueIterator<T>(this);
+	}
+	
 	@Override
 	public boolean isEmpty() {
 		return (this.hiddenDataStructure.length == 0);
@@ -39,11 +43,12 @@ public class QueueImpl<T> implements Queue<T> {
 	@Override
 	public void print() {
 		System.out.print("Queue: {");
-		for (int i = 0; i < this.hiddenDataStructure.length; i++) {
+		for (int i = 0; i < this.hiddenDataStructure.length - 1; i++) {
 			System.out.print(this.hiddenDataStructure[i]);
 			System.out.print(", ");
 		}
-		System.out.print("}");
+		System.out.print(this.hiddenDataStructure[this.hiddenDataStructure.length - 1]);
+		System.out.println("}");
 		
 	}
 

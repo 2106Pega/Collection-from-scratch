@@ -7,6 +7,10 @@ public class SetImpl<T> implements Set<T> {
 	public SetImpl() {
 		this.hiddenDataStructure = (T[]) new Object[0];
 	}
+	
+	public Iterator<T> iterator() {
+		return new SetIterator<T>(this);
+	}
 
 	@Override
 	public boolean isEmpty() {
@@ -43,11 +47,12 @@ public class SetImpl<T> implements Set<T> {
 	@Override
 	public void print() {
 		System.out.print("Set: {");
-		for (int i = 0; i < this.hiddenDataStructure.length; i++) {
+		for (int i = 0; i < this.hiddenDataStructure.length - 1; i++) {
 			System.out.print(this.hiddenDataStructure[i]);
 			System.out.print(", ");
 		}
-		System.out.print("}");
+		System.out.print(this.hiddenDataStructure[this.hiddenDataStructure.length - 1]);
+		System.out.println("}");
 	}
 
 	@Override
@@ -87,6 +92,11 @@ public class SetImpl<T> implements Set<T> {
 		}
 		
 		return false;
+	}
+	
+	@Override
+	public T[] toArray() {
+		return this.hiddenDataStructure;
 	}
 
 }
